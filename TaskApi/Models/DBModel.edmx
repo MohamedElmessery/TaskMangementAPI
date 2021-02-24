@@ -1,0 +1,2043 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Acropol_MaintenanceDB3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer_Code" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Customer_Name" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Customer_Telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Customer_Address" Type="ntext" Nullable="false" />
+          <Property Name="City_ID" Type="int" Nullable="false" />
+          <Property Name="Referer1_Name" Type="nvarchar" MaxLength="300" />
+          <Property Name="Referer1_Telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Referer2_Name" Type="nvarchar" MaxLength="300" />
+          <Property Name="Referer2_Telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Referer3_Name" Type="nvarchar" MaxLength="300" />
+          <Property Name="Referer3_Telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Referer4_Name" Type="nvarchar" MaxLength="300" />
+          <Property Name="Referer4_Telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="LastModifiedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="datetime" Nullable="false" />
+          <Property Name="CustomerLocation" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CompanyId" Type="int" />
+        </EntityType>
+        <EntityType Name="Installation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer_ID" Type="bigint" Nullable="false" />
+          <Property Name="Product_ID" Type="int" Nullable="false" />
+          <Property Name="Installation_Date" Type="datetime" Nullable="false" />
+          <Property Name="Count1" Type="decimal" Precision="8" Scale="1" Nullable="false" />
+          <Property Name="Capacity1_ID" Type="int" Nullable="false" />
+          <Property Name="Count2" Type="decimal" Precision="8" Scale="1" />
+          <Property Name="Capacity2_ID" Type="int" />
+          <Property Name="Count3" Type="decimal" Precision="8" Scale="1" />
+          <Property Name="Capacity3_ID" Type="int" />
+          <Property Name="Count4" Type="decimal" Precision="8" Scale="1" />
+          <Property Name="Capacity4_ID" Type="int" />
+          <Property Name="Count5" Type="decimal" Precision="8" Scale="1" />
+          <Property Name="Capacity5_ID" Type="int" />
+          <Property Name="Comments" Type="ntext" />
+          <Property Name="Maintenance_Type" Type="tinyint" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="LastModifiedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Maintenance_FollowUp">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Customer_ID" Type="bigint" Nullable="false" />
+          <Property Name="Installation_ID" Type="bigint" Nullable="false" />
+          <Property Name="FollowUp_Date" Type="datetime" Nullable="false" />
+          <Property Name="FollowUp_Comment" Type="ntext" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="LastModifiedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Maintenance_Visit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer_ID" Type="bigint" Nullable="false" />
+          <Property Name="Installation_ID" Type="bigint" />
+          <Property Name="Maintenance_Date" Type="datetime" Nullable="false" />
+          <Property Name="Product_Issue" Type="ntext" Nullable="false" />
+          <Property Name="Maintenance_Description" Type="ntext" Nullable="false" />
+          <Property Name="Fix_Engineer_ID" Type="int" Nullable="false" />
+          <Property Name="Assistant_Engineer_ID" Type="int" Nullable="false" />
+          <Property Name="Count1" Type="decimal" Precision="8" Scale="1" Nullable="false" />
+          <Property Name="Equipment1_ID" Type="int" Nullable="false" />
+          <Property Name="Count2" Type="decimal" Precision="8" Scale="1" />
+          <Property Name="Equipment2_ID" Type="int" />
+          <Property Name="Count3" Type="decimal" Precision="8" Scale="1" />
+          <Property Name="Equipment3_ID" Type="int" />
+          <Property Name="Count4" Type="decimal" Precision="8" Scale="1" />
+          <Property Name="Equipment4_ID" Type="int" />
+          <Property Name="Count5" Type="decimal" Precision="8" Scale="1" />
+          <Property Name="Equipment5_ID" Type="int" />
+          <Property Name="Comments" Type="ntext" />
+          <Property Name="CollectedFees" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="OrderNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="LastModifiedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectTitle" Type="nvarchar" MaxLength="150" />
+          <Property Name="Projectdec" Type="nvarchar" MaxLength="150" />
+          <Property Name="CustomerId" Type="bigint" />
+          <Property Name="Startat" Type="datetime" Nullable="false" />
+          <Property Name="Endat" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tasks">
+          <Key>
+            <PropertyRef Name="TaskId" />
+          </Key>
+          <Property Name="TaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaskTitle" Type="nvarchar" MaxLength="150" />
+          <Property Name="Taskdec" Type="nvarchar" MaxLength="150" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="TechId" Type="int" />
+          <Property Name="Startat" Type="datetime" Nullable="false" />
+          <Property Name="Endat" Type="datetime" Nullable="false" />
+          <Property Name="latitude" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="longitude" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Technicians">
+          <Key>
+            <PropertyRef Name="TechId" />
+          </Key>
+          <Property Name="TechId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequestTitle" Type="nvarchar" MaxLength="127" Nullable="false" />
+          <Property Name="RequestDate" Type="date" Nullable="false" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="RequestTime" Type="datetime" Nullable="false" />
+          <Property Name="ReplyTitle" Type="nvarchar" MaxLength="127" Nullable="false" />
+          <Property Name="ReplyTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TechRequest">
+          <Key>
+            <PropertyRef Name="RequestId" />
+          </Key>
+          <Property Name="RequestId" Type="int" Nullable="false" />
+          <Property Name="RequestTiTle" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsApproved" Type="bit" />
+          <Property Name="RquestTime" Type="datetime" />
+          <Property Name="ReplyTiTle" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReplyTime" Type="datetime" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Capacity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Capacity" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="LastModifiedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="City_Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="City_Name_AR" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="State_ID" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="LastModifiedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="150" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="LastModifiedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Country_Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="Country_Name_AR" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="LastModifiedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Equipments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Equipment_Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="Equipment_Name_AR" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="LastModifiedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fix_Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fix_Employee_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="LastModifiedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="datetime" Nullable="false" />
+          <Property Name="Is Active" Type="bit" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product_Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="Product_Name_AR" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="LastModifiedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="State_Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="State_Name_AR" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Country_ID" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="LastModifiedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AspNetUsers_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="City_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Company1">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Customer1" Type="Self.Customer" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Customer1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fix_Employee_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Fix_Employee" Type="Self.Fix_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Fix_Employee">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Installation_Capacity">
+          <End Role="Capacity" Type="Self.Capacity" Multiplicity="1" />
+          <End Role="Installation" Type="Self.Installation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Capacity">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Installation">
+              <PropertyRef Name="Capacity1_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Installation_Capacity1">
+          <End Role="Capacity" Type="Self.Capacity" Multiplicity="0..1" />
+          <End Role="Installation" Type="Self.Installation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Capacity">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Installation">
+              <PropertyRef Name="Capacity2_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Installation_Capacity2">
+          <End Role="Capacity" Type="Self.Capacity" Multiplicity="0..1" />
+          <End Role="Installation" Type="Self.Installation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Capacity">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Installation">
+              <PropertyRef Name="Capacity3_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Installation_Capacity3">
+          <End Role="Capacity" Type="Self.Capacity" Multiplicity="0..1" />
+          <End Role="Installation" Type="Self.Installation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Capacity">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Installation">
+              <PropertyRef Name="Capacity4_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Installation_Capacity4">
+          <End Role="Capacity" Type="Self.Capacity" Multiplicity="0..1" />
+          <End Role="Installation" Type="Self.Installation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Capacity">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Installation">
+              <PropertyRef Name="Capacity5_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Installation_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Installation" Type="Self.Installation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Installation">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Installation_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Installation" Type="Self.Installation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Installation">
+              <PropertyRef Name="Product_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_FollowUp_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Maintenance_FollowUp" Type="Self.Maintenance_FollowUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_FollowUp">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_FollowUp_Installation">
+          <End Role="Installation" Type="Self.Installation" Multiplicity="1" />
+          <End Role="Maintenance_FollowUp" Type="Self.Maintenance_FollowUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Installation">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_FollowUp">
+              <PropertyRef Name="Installation_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Visit_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Maintenance_Visit" Type="Self.Maintenance_Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_Visit">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Visit_Equipments">
+          <End Role="Equipments" Type="Self.Equipments" Multiplicity="1" />
+          <End Role="Maintenance_Visit" Type="Self.Maintenance_Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipments">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_Visit">
+              <PropertyRef Name="Equipment1_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Visit_Equipments1">
+          <End Role="Equipments" Type="Self.Equipments" Multiplicity="0..1" />
+          <End Role="Maintenance_Visit" Type="Self.Maintenance_Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipments">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_Visit">
+              <PropertyRef Name="Equipment2_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Visit_Equipments2">
+          <End Role="Equipments" Type="Self.Equipments" Multiplicity="0..1" />
+          <End Role="Maintenance_Visit" Type="Self.Maintenance_Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipments">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_Visit">
+              <PropertyRef Name="Equipment3_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Visit_Equipments3">
+          <End Role="Equipments" Type="Self.Equipments" Multiplicity="0..1" />
+          <End Role="Maintenance_Visit" Type="Self.Maintenance_Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipments">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_Visit">
+              <PropertyRef Name="Equipment4_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Visit_Equipments4">
+          <End Role="Equipments" Type="Self.Equipments" Multiplicity="0..1" />
+          <End Role="Maintenance_Visit" Type="Self.Maintenance_Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipments">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_Visit">
+              <PropertyRef Name="Equipment5_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Visit_Fix_Employee">
+          <End Role="Fix_Employee" Type="Self.Fix_Employee" Multiplicity="1" />
+          <End Role="Maintenance_Visit" Type="Self.Maintenance_Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fix_Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_Visit">
+              <PropertyRef Name="Fix_Engineer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Visit_Fix_Employee1">
+          <End Role="Fix_Employee" Type="Self.Fix_Employee" Multiplicity="1" />
+          <End Role="Maintenance_Visit" Type="Self.Maintenance_Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fix_Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_Visit">
+              <PropertyRef Name="Assistant_Engineer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Visit_Installation">
+          <End Role="Installation" Type="Self.Installation" Multiplicity="0..1" />
+          <End Role="Maintenance_Visit" Type="Self.Maintenance_Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Installation">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_Visit">
+              <PropertyRef Name="Installation_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tasks_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tasks_Technicians">
+          <End Role="Technicians" Type="Self.Technicians" Multiplicity="0..1" />
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Technicians">
+              <PropertyRef Name="TechId" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="TechId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechRequest_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="TechRequest" Type="Self.TechRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TechRequest">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Acropol_MaintenanceDB3ModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Installation" EntityType="Self.Installation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Maintenance_FollowUp" EntityType="Self.Maintenance_FollowUp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Maintenance_Visit" EntityType="Self.Maintenance_Visit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Technicians" EntityType="Self.Technicians" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TechRequest" EntityType="Self.TechRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Capacity" EntityType="Self.Capacity" Schema="LKP" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="LKP" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="LKP" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="LKP" store:Type="Tables" />
+          <EntitySet Name="Equipments" EntityType="Self.Equipments" Schema="LKP" store:Type="Tables" />
+          <EntitySet Name="Fix_Employee" EntityType="Self.Fix_Employee" Schema="LKP" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="LKP" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="LKP" store:Type="Tables" />
+          <AssociationSet Name="FK_AspNetUsers_Company" Association="Self.FK_AspNetUsers_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_City" Association="Self.FK_Customer_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Company" Association="Self.FK_Customer_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Company1" Association="Self.FK_Customer_Company1">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Customer" Association="Self.FK_Customer_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Customer1" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fix_Employee_AspNetUsers" Association="Self.FK_Fix_Employee_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Fix_Employee" EntitySet="Fix_Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Installation_Capacity" Association="Self.FK_Installation_Capacity">
+            <End Role="Capacity" EntitySet="Capacity" />
+            <End Role="Installation" EntitySet="Installation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Installation_Capacity1" Association="Self.FK_Installation_Capacity1">
+            <End Role="Capacity" EntitySet="Capacity" />
+            <End Role="Installation" EntitySet="Installation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Installation_Capacity2" Association="Self.FK_Installation_Capacity2">
+            <End Role="Capacity" EntitySet="Capacity" />
+            <End Role="Installation" EntitySet="Installation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Installation_Capacity3" Association="Self.FK_Installation_Capacity3">
+            <End Role="Capacity" EntitySet="Capacity" />
+            <End Role="Installation" EntitySet="Installation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Installation_Capacity4" Association="Self.FK_Installation_Capacity4">
+            <End Role="Capacity" EntitySet="Capacity" />
+            <End Role="Installation" EntitySet="Installation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Installation_Customer" Association="Self.FK_Installation_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Installation" EntitySet="Installation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Installation_Products" Association="Self.FK_Installation_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Installation" EntitySet="Installation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_FollowUp_Customer" Association="Self.FK_Maintenance_FollowUp_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Maintenance_FollowUp" EntitySet="Maintenance_FollowUp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_FollowUp_Installation" Association="Self.FK_Maintenance_FollowUp_Installation">
+            <End Role="Installation" EntitySet="Installation" />
+            <End Role="Maintenance_FollowUp" EntitySet="Maintenance_FollowUp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Visit_Customer" Association="Self.FK_Maintenance_Visit_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Maintenance_Visit" EntitySet="Maintenance_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Visit_Equipments" Association="Self.FK_Maintenance_Visit_Equipments">
+            <End Role="Equipments" EntitySet="Equipments" />
+            <End Role="Maintenance_Visit" EntitySet="Maintenance_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Visit_Equipments1" Association="Self.FK_Maintenance_Visit_Equipments1">
+            <End Role="Equipments" EntitySet="Equipments" />
+            <End Role="Maintenance_Visit" EntitySet="Maintenance_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Visit_Equipments2" Association="Self.FK_Maintenance_Visit_Equipments2">
+            <End Role="Equipments" EntitySet="Equipments" />
+            <End Role="Maintenance_Visit" EntitySet="Maintenance_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Visit_Equipments3" Association="Self.FK_Maintenance_Visit_Equipments3">
+            <End Role="Equipments" EntitySet="Equipments" />
+            <End Role="Maintenance_Visit" EntitySet="Maintenance_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Visit_Equipments4" Association="Self.FK_Maintenance_Visit_Equipments4">
+            <End Role="Equipments" EntitySet="Equipments" />
+            <End Role="Maintenance_Visit" EntitySet="Maintenance_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Visit_Fix_Employee" Association="Self.FK_Maintenance_Visit_Fix_Employee">
+            <End Role="Fix_Employee" EntitySet="Fix_Employee" />
+            <End Role="Maintenance_Visit" EntitySet="Maintenance_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Visit_Fix_Employee1" Association="Self.FK_Maintenance_Visit_Fix_Employee1">
+            <End Role="Fix_Employee" EntitySet="Fix_Employee" />
+            <End Role="Maintenance_Visit" EntitySet="Maintenance_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Visit_Installation" Association="Self.FK_Maintenance_Visit_Installation">
+            <End Role="Installation" EntitySet="Installation" />
+            <End Role="Maintenance_Visit" EntitySet="Maintenance_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_Customer" Association="Self.FK_Projects_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tasks_Projects" Association="Self.FK_Tasks_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tasks_Technicians" Association="Self.FK_Tasks_Technicians">
+            <End Role="Technicians" EntitySet="Technicians" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechRequest_AspNetUsers" Association="Self.FK_TechRequest_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="TechRequest" EntitySet="TechRequest" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Acropol_MaintenanceDB3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer_Code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Customer_Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Customer_Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City_ID" Type="Int32" Nullable="false" />
+          <Property Name="Referer1_Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Referer1_Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Referer2_Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Referer2_Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Referer3_Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Referer3_Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Referer4_Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Referer4_Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CustomerLocation" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CompanyId" Type="Int32" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Customer_City" FromRole="Customer" ToRole="City" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Customer_Company" FromRole="Customer" ToRole="Company" />
+          <NavigationProperty Name="Company1" Relationship="Self.FK_Customer_Company1" FromRole="Customer" ToRole="Company" />
+          <NavigationProperty Name="Customer1" Relationship="Self.FK_Customer_Customer" FromRole="Customer" ToRole="Customer1" />
+          <NavigationProperty Name="Customer2" Relationship="Self.FK_Customer_Customer" FromRole="Customer1" ToRole="Customer" />
+          <NavigationProperty Name="Installations" Relationship="Self.FK_Installation_Customer" FromRole="Customer" ToRole="Installation" />
+          <NavigationProperty Name="Maintenance_FollowUp" Relationship="Self.FK_Maintenance_FollowUp_Customer" FromRole="Customer" ToRole="Maintenance_FollowUp" />
+          <NavigationProperty Name="Maintenance_Visit" Relationship="Self.FK_Maintenance_Visit_Customer" FromRole="Customer" ToRole="Maintenance_Visit" />
+          <NavigationProperty Name="Projects" Relationship="Self.FK_Projects_Customer" FromRole="Customer" ToRole="Projects" />
+        </EntityType>
+        <EntityType Name="Installation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer_ID" Type="Int64" Nullable="false" />
+          <Property Name="Product_ID" Type="Int32" Nullable="false" />
+          <Property Name="Installation_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Count1" Type="Decimal" Precision="8" Scale="1" Nullable="false" />
+          <Property Name="Capacity1_ID" Type="Int32" Nullable="false" />
+          <Property Name="Count2" Type="Decimal" Precision="8" Scale="1" />
+          <Property Name="Capacity2_ID" Type="Int32" />
+          <Property Name="Count3" Type="Decimal" Precision="8" Scale="1" />
+          <Property Name="Capacity3_ID" Type="Int32" />
+          <Property Name="Count4" Type="Decimal" Precision="8" Scale="1" />
+          <Property Name="Capacity4_ID" Type="Int32" />
+          <Property Name="Count5" Type="Decimal" Precision="8" Scale="1" />
+          <Property Name="Capacity5_ID" Type="Int32" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Maintenance_Type" Type="Byte" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Installation_Customer" FromRole="Installation" ToRole="Customer" />
+          <NavigationProperty Name="Capacity" Relationship="Self.FK_Installation_Capacity" FromRole="Installation" ToRole="Capacity" />
+          <NavigationProperty Name="Capacity1" Relationship="Self.FK_Installation_Capacity1" FromRole="Installation" ToRole="Capacity" />
+          <NavigationProperty Name="Capacity2" Relationship="Self.FK_Installation_Capacity2" FromRole="Installation" ToRole="Capacity" />
+          <NavigationProperty Name="Capacity3" Relationship="Self.FK_Installation_Capacity3" FromRole="Installation" ToRole="Capacity" />
+          <NavigationProperty Name="Capacity4" Relationship="Self.FK_Installation_Capacity4" FromRole="Installation" ToRole="Capacity" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Installation_Products" FromRole="Installation" ToRole="Products" />
+          <NavigationProperty Name="Maintenance_FollowUp" Relationship="Self.FK_Maintenance_FollowUp_Installation" FromRole="Installation" ToRole="Maintenance_FollowUp" />
+          <NavigationProperty Name="Maintenance_Visit" Relationship="Self.FK_Maintenance_Visit_Installation" FromRole="Installation" ToRole="Maintenance_Visit" />
+        </EntityType>
+        <EntityType Name="Maintenance_FollowUp">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Customer_ID" Type="Int64" Nullable="false" />
+          <Property Name="Installation_ID" Type="Int64" Nullable="false" />
+          <Property Name="FollowUp_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FollowUp_Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Maintenance_FollowUp_Customer" FromRole="Maintenance_FollowUp" ToRole="Customer" />
+          <NavigationProperty Name="Installation" Relationship="Self.FK_Maintenance_FollowUp_Installation" FromRole="Maintenance_FollowUp" ToRole="Installation" />
+        </EntityType>
+        <EntityType Name="Maintenance_Visit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer_ID" Type="Int64" Nullable="false" />
+          <Property Name="Installation_ID" Type="Int64" />
+          <Property Name="Maintenance_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Product_Issue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Maintenance_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fix_Engineer_ID" Type="Int32" Nullable="false" />
+          <Property Name="Assistant_Engineer_ID" Type="Int32" Nullable="false" />
+          <Property Name="Count1" Type="Decimal" Precision="8" Scale="1" Nullable="false" />
+          <Property Name="Equipment1_ID" Type="Int32" Nullable="false" />
+          <Property Name="Count2" Type="Decimal" Precision="8" Scale="1" />
+          <Property Name="Equipment2_ID" Type="Int32" />
+          <Property Name="Count3" Type="Decimal" Precision="8" Scale="1" />
+          <Property Name="Equipment3_ID" Type="Int32" />
+          <Property Name="Count4" Type="Decimal" Precision="8" Scale="1" />
+          <Property Name="Equipment4_ID" Type="Int32" />
+          <Property Name="Count5" Type="Decimal" Precision="8" Scale="1" />
+          <Property Name="Equipment5_ID" Type="Int32" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CollectedFees" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="OrderNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Maintenance_Visit_Customer" FromRole="Maintenance_Visit" ToRole="Customer" />
+          <NavigationProperty Name="Installation" Relationship="Self.FK_Maintenance_Visit_Installation" FromRole="Maintenance_Visit" ToRole="Installation" />
+          <NavigationProperty Name="Equipment" Relationship="Self.FK_Maintenance_Visit_Equipments" FromRole="Maintenance_Visit" ToRole="Equipments" />
+          <NavigationProperty Name="Equipment1" Relationship="Self.FK_Maintenance_Visit_Equipments1" FromRole="Maintenance_Visit" ToRole="Equipments" />
+          <NavigationProperty Name="Equipment2" Relationship="Self.FK_Maintenance_Visit_Equipments2" FromRole="Maintenance_Visit" ToRole="Equipments" />
+          <NavigationProperty Name="Equipment3" Relationship="Self.FK_Maintenance_Visit_Equipments3" FromRole="Maintenance_Visit" ToRole="Equipments" />
+          <NavigationProperty Name="Equipment4" Relationship="Self.FK_Maintenance_Visit_Equipments4" FromRole="Maintenance_Visit" ToRole="Equipments" />
+          <NavigationProperty Name="Fix_Employee" Relationship="Self.FK_Maintenance_Visit_Fix_Employee" FromRole="Maintenance_Visit" ToRole="Fix_Employee" />
+          <NavigationProperty Name="Fix_Employee1" Relationship="Self.FK_Maintenance_Visit_Fix_Employee1" FromRole="Maintenance_Visit" ToRole="Fix_Employee" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Projectdec" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerId" Type="Int64" />
+          <Property Name="Startat" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Endat" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Projects_Customer" FromRole="Projects" ToRole="Customer" />
+          <NavigationProperty Name="Tasks" Relationship="Self.FK_Tasks_Projects" FromRole="Projects" ToRole="Tasks" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="TaskId" />
+          </Key>
+          <Property Name="TaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Taskdec" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="TechId" Type="Int32" />
+          <Property Name="Startat" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Endat" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="latitude" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="longitude" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_Tasks_Projects" FromRole="Tasks" ToRole="Projects" />
+          <NavigationProperty Name="Technician" Relationship="Self.FK_Tasks_Technicians" FromRole="Tasks" ToRole="Technicians" />
+        </EntityType>
+        <EntityType Name="Technician">
+          <Key>
+            <PropertyRef Name="TechId" />
+          </Key>
+          <Property Name="TechId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequestTitle" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="RequestTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ReplyTitle" Type="String" MaxLength="127" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReplyTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Tasks" Relationship="Self.FK_Tasks_Technicians" FromRole="Technicians" ToRole="Tasks" />
+        </EntityType>
+        <EntityType Name="Capacity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Capacity1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Installations" Relationship="Self.FK_Installation_Capacity" FromRole="Capacity" ToRole="Installation" />
+          <NavigationProperty Name="Installations1" Relationship="Self.FK_Installation_Capacity1" FromRole="Capacity" ToRole="Installation" />
+          <NavigationProperty Name="Installations2" Relationship="Self.FK_Installation_Capacity2" FromRole="Capacity" ToRole="Installation" />
+          <NavigationProperty Name="Installations3" Relationship="Self.FK_Installation_Capacity3" FromRole="Capacity" ToRole="Installation" />
+          <NavigationProperty Name="Installations4" Relationship="Self.FK_Installation_Capacity4" FromRole="Capacity" ToRole="Installation" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="City_Name_AR" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="State_ID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_City" FromRole="City" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Company" FromRole="Company" ToRole="Customer" />
+          <NavigationProperty Name="Customers1" Relationship="Self.FK_Customer_Company1" FromRole="Company" ToRole="Customer" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Acropol_MaintenanceDB3Model.FK_AspNetUsers_Company" FromRole="Company" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Country_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Country_Name_AR" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Equipment_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Equipment_Name_AR" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Maintenance_Visit" Relationship="Self.FK_Maintenance_Visit_Equipments" FromRole="Equipments" ToRole="Maintenance_Visit" />
+          <NavigationProperty Name="Maintenance_Visit1" Relationship="Self.FK_Maintenance_Visit_Equipments1" FromRole="Equipments" ToRole="Maintenance_Visit" />
+          <NavigationProperty Name="Maintenance_Visit2" Relationship="Self.FK_Maintenance_Visit_Equipments2" FromRole="Equipments" ToRole="Maintenance_Visit" />
+          <NavigationProperty Name="Maintenance_Visit3" Relationship="Self.FK_Maintenance_Visit_Equipments3" FromRole="Equipments" ToRole="Maintenance_Visit" />
+          <NavigationProperty Name="Maintenance_Visit4" Relationship="Self.FK_Maintenance_Visit_Equipments4" FromRole="Equipments" ToRole="Maintenance_Visit" />
+        </EntityType>
+        <EntityType Name="Fix_Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fix_Employee_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <NavigationProperty Name="Maintenance_Visit" Relationship="Self.FK_Maintenance_Visit_Fix_Employee" FromRole="Fix_Employee" ToRole="Maintenance_Visit" />
+          <NavigationProperty Name="Maintenance_Visit1" Relationship="Self.FK_Maintenance_Visit_Fix_Employee1" FromRole="Fix_Employee" ToRole="Maintenance_Visit" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Acropol_MaintenanceDB3Model.FK_Fix_Employee_AspNetUsers" FromRole="Fix_Employee" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Product_Name_AR" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Installations" Relationship="Self.FK_Installation_Products" FromRole="Products" ToRole="Installation" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="State_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="State_Name_AR" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country_ID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastModifiedAt" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_Customer_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="City_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Company1">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Customer1" Type="Self.Customer" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Customer1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Installation_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Installation" Type="Self.Installation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Installation">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_FollowUp_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Maintenance_FollowUp" Type="Self.Maintenance_FollowUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_FollowUp">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Visit_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Maintenance_Visit" Type="Self.Maintenance_Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_Visit">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Projects" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Installation_Capacity">
+          <End Role="Capacity" Type="Self.Capacity" Multiplicity="1" />
+          <End Role="Installation" Type="Self.Installation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Capacity">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Installation">
+              <PropertyRef Name="Capacity1_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Installation_Capacity1">
+          <End Role="Capacity" Type="Self.Capacity" Multiplicity="0..1" />
+          <End Role="Installation" Type="Self.Installation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Capacity">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Installation">
+              <PropertyRef Name="Capacity2_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Installation_Capacity2">
+          <End Role="Capacity" Type="Self.Capacity" Multiplicity="0..1" />
+          <End Role="Installation" Type="Self.Installation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Capacity">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Installation">
+              <PropertyRef Name="Capacity3_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Installation_Capacity3">
+          <End Role="Capacity" Type="Self.Capacity" Multiplicity="0..1" />
+          <End Role="Installation" Type="Self.Installation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Capacity">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Installation">
+              <PropertyRef Name="Capacity4_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Installation_Capacity4">
+          <End Role="Capacity" Type="Self.Capacity" Multiplicity="0..1" />
+          <End Role="Installation" Type="Self.Installation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Capacity">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Installation">
+              <PropertyRef Name="Capacity5_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Installation_Products">
+          <End Role="Products" Type="Self.Product" Multiplicity="1" />
+          <End Role="Installation" Type="Self.Installation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Installation">
+              <PropertyRef Name="Product_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_FollowUp_Installation">
+          <End Role="Installation" Type="Self.Installation" Multiplicity="1" />
+          <End Role="Maintenance_FollowUp" Type="Self.Maintenance_FollowUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Installation">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_FollowUp">
+              <PropertyRef Name="Installation_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Visit_Installation">
+          <End Role="Installation" Type="Self.Installation" Multiplicity="0..1" />
+          <End Role="Maintenance_Visit" Type="Self.Maintenance_Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Installation">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_Visit">
+              <PropertyRef Name="Installation_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Visit_Equipments">
+          <End Role="Equipments" Type="Self.Equipment" Multiplicity="1" />
+          <End Role="Maintenance_Visit" Type="Self.Maintenance_Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipments">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_Visit">
+              <PropertyRef Name="Equipment1_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Visit_Equipments1">
+          <End Role="Equipments" Type="Self.Equipment" Multiplicity="0..1" />
+          <End Role="Maintenance_Visit" Type="Self.Maintenance_Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipments">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_Visit">
+              <PropertyRef Name="Equipment2_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Visit_Equipments2">
+          <End Role="Equipments" Type="Self.Equipment" Multiplicity="0..1" />
+          <End Role="Maintenance_Visit" Type="Self.Maintenance_Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipments">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_Visit">
+              <PropertyRef Name="Equipment3_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Visit_Equipments3">
+          <End Role="Equipments" Type="Self.Equipment" Multiplicity="0..1" />
+          <End Role="Maintenance_Visit" Type="Self.Maintenance_Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipments">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_Visit">
+              <PropertyRef Name="Equipment4_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Visit_Equipments4">
+          <End Role="Equipments" Type="Self.Equipment" Multiplicity="0..1" />
+          <End Role="Maintenance_Visit" Type="Self.Maintenance_Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipments">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_Visit">
+              <PropertyRef Name="Equipment5_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Visit_Fix_Employee">
+          <End Role="Fix_Employee" Type="Self.Fix_Employee" Multiplicity="1" />
+          <End Role="Maintenance_Visit" Type="Self.Maintenance_Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fix_Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_Visit">
+              <PropertyRef Name="Fix_Engineer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Visit_Fix_Employee1">
+          <End Role="Fix_Employee" Type="Self.Fix_Employee" Multiplicity="1" />
+          <End Role="Maintenance_Visit" Type="Self.Maintenance_Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fix_Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Maintenance_Visit">
+              <PropertyRef Name="Assistant_Engineer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tasks_Projects">
+          <End Role="Projects" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="Tasks" Type="Self.Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tasks_Technicians">
+          <End Role="Technicians" Type="Self.Technician" Multiplicity="0..1" />
+          <End Role="Tasks" Type="Self.Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Technicians">
+              <PropertyRef Name="TechId" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="TechId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Acropol_MaintenanceDB3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Installations" EntityType="Self.Installation" />
+          <EntitySet Name="Maintenance_FollowUp" EntityType="Self.Maintenance_FollowUp" />
+          <EntitySet Name="Maintenance_Visit" EntityType="Self.Maintenance_Visit" />
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="Tasks" EntityType="Self.Task" />
+          <EntitySet Name="Technicians" EntityType="Self.Technician" />
+          <EntitySet Name="Capacities" EntityType="Self.Capacity" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="Equipments" EntityType="Self.Equipment" />
+          <EntitySet Name="Fix_Employee" EntityType="Self.Fix_Employee" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="States" EntityType="Self.State" />
+          <AssociationSet Name="FK_Customer_City" Association="Self.FK_Customer_City">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Company" Association="Self.FK_Customer_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Company1" Association="Self.FK_Customer_Company1">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Customer" Association="Self.FK_Customer_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Customer1" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Installation_Customer" Association="Self.FK_Installation_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Installation" EntitySet="Installations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_FollowUp_Customer" Association="Self.FK_Maintenance_FollowUp_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Maintenance_FollowUp" EntitySet="Maintenance_FollowUp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Visit_Customer" Association="Self.FK_Maintenance_Visit_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Maintenance_Visit" EntitySet="Maintenance_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_Customer" Association="Self.FK_Projects_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Installation_Capacity" Association="Self.FK_Installation_Capacity">
+            <End Role="Capacity" EntitySet="Capacities" />
+            <End Role="Installation" EntitySet="Installations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Installation_Capacity1" Association="Self.FK_Installation_Capacity1">
+            <End Role="Capacity" EntitySet="Capacities" />
+            <End Role="Installation" EntitySet="Installations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Installation_Capacity2" Association="Self.FK_Installation_Capacity2">
+            <End Role="Capacity" EntitySet="Capacities" />
+            <End Role="Installation" EntitySet="Installations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Installation_Capacity3" Association="Self.FK_Installation_Capacity3">
+            <End Role="Capacity" EntitySet="Capacities" />
+            <End Role="Installation" EntitySet="Installations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Installation_Capacity4" Association="Self.FK_Installation_Capacity4">
+            <End Role="Capacity" EntitySet="Capacities" />
+            <End Role="Installation" EntitySet="Installations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Installation_Products" Association="Self.FK_Installation_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Installation" EntitySet="Installations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_FollowUp_Installation" Association="Self.FK_Maintenance_FollowUp_Installation">
+            <End Role="Installation" EntitySet="Installations" />
+            <End Role="Maintenance_FollowUp" EntitySet="Maintenance_FollowUp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Visit_Installation" Association="Self.FK_Maintenance_Visit_Installation">
+            <End Role="Installation" EntitySet="Installations" />
+            <End Role="Maintenance_Visit" EntitySet="Maintenance_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Visit_Equipments" Association="Self.FK_Maintenance_Visit_Equipments">
+            <End Role="Equipments" EntitySet="Equipments" />
+            <End Role="Maintenance_Visit" EntitySet="Maintenance_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Visit_Equipments1" Association="Self.FK_Maintenance_Visit_Equipments1">
+            <End Role="Equipments" EntitySet="Equipments" />
+            <End Role="Maintenance_Visit" EntitySet="Maintenance_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Visit_Equipments2" Association="Self.FK_Maintenance_Visit_Equipments2">
+            <End Role="Equipments" EntitySet="Equipments" />
+            <End Role="Maintenance_Visit" EntitySet="Maintenance_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Visit_Equipments3" Association="Self.FK_Maintenance_Visit_Equipments3">
+            <End Role="Equipments" EntitySet="Equipments" />
+            <End Role="Maintenance_Visit" EntitySet="Maintenance_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Visit_Equipments4" Association="Self.FK_Maintenance_Visit_Equipments4">
+            <End Role="Equipments" EntitySet="Equipments" />
+            <End Role="Maintenance_Visit" EntitySet="Maintenance_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Visit_Fix_Employee" Association="Self.FK_Maintenance_Visit_Fix_Employee">
+            <End Role="Fix_Employee" EntitySet="Fix_Employee" />
+            <End Role="Maintenance_Visit" EntitySet="Maintenance_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Visit_Fix_Employee1" Association="Self.FK_Maintenance_Visit_Fix_Employee1">
+            <End Role="Fix_Employee" EntitySet="Fix_Employee" />
+            <End Role="Maintenance_Visit" EntitySet="Maintenance_Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tasks_Projects" Association="Self.FK_Tasks_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tasks_Technicians" Association="Self.FK_Tasks_Technicians">
+            <End Role="Technicians" EntitySet="Technicians" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <EntitySet Name="AspNetRoles" EntityType="Acropol_MaintenanceDB3Model.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Acropol_MaintenanceDB3Model.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Acropol_MaintenanceDB3Model.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Acropol_MaintenanceDB3Model.AspNetUser" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Acropol_MaintenanceDB3Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Acropol_MaintenanceDB3Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUsers_Company" Association="Acropol_MaintenanceDB3Model.FK_AspNetUsers_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fix_Employee_AspNetUsers" Association="Acropol_MaintenanceDB3Model.FK_Fix_Employee_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Fix_Employee" EntitySet="Fix_Employee" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Acropol_MaintenanceDB3Model.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="TechRequests" EntityType="Acropol_MaintenanceDB3Model.TechRequest" />
+          <AssociationSet Name="FK_TechRequest_AspNetUsers" Association="Acropol_MaintenanceDB3Model.FK_TechRequest_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="TechRequest" EntitySet="TechRequests" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Acropol_MaintenanceDB3Model.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Acropol_MaintenanceDB3Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Acropol_MaintenanceDB3Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Int32" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Acropol_MaintenanceDB3Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Acropol_MaintenanceDB3Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="Company" Relationship="Acropol_MaintenanceDB3Model.FK_AspNetUsers_Company" FromRole="AspNetUser" ToRole="Company" />
+          <NavigationProperty Name="Fix_Employee" Relationship="Acropol_MaintenanceDB3Model.FK_Fix_Employee_AspNetUsers" FromRole="AspNetUser" ToRole="Fix_Employee" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Acropol_MaintenanceDB3Model.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+          <NavigationProperty Name="TechRequests" Relationship="Acropol_MaintenanceDB3Model.FK_TechRequest_AspNetUsers" FromRole="AspNetUser" ToRole="TechRequest" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="Acropol_MaintenanceDB3Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Acropol_MaintenanceDB3Model.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="Acropol_MaintenanceDB3Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Acropol_MaintenanceDB3Model.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUsers_Company">
+          <End Type="Acropol_MaintenanceDB3Model.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="Acropol_MaintenanceDB3Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="AspNetUser">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fix_Employee_AspNetUsers">
+          <End Type="Acropol_MaintenanceDB3Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="Acropol_MaintenanceDB3Model.Fix_Employee" Role="Fix_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Fix_Employee">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="Acropol_MaintenanceDB3Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="Acropol_MaintenanceDB3Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityType Name="TechRequest">
+          <Key>
+            <PropertyRef Name="RequestId" />
+          </Key>
+          <Property Name="RequestId" Type="Int32" Nullable="false" />
+          <Property Name="RequestTiTle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsApproved" Type="Boolean" />
+          <Property Name="RquestTime" Type="DateTime" Precision="3" />
+          <Property Name="ReplyTiTle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReplyTime" Type="DateTime" Precision="3" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Acropol_MaintenanceDB3Model.FK_TechRequest_AspNetUsers" FromRole="TechRequest" ToRole="AspNetUser" />
+        </EntityType>
+        <Association Name="FK_TechRequest_AspNetUsers">
+          <End Type="Acropol_MaintenanceDB3Model.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="Acropol_MaintenanceDB3Model.TechRequest" Role="TechRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TechRequest">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Acropol_MaintenanceDB3ModelStoreContainer" CdmEntityContainer="Acropol_MaintenanceDB3Entities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Customer_Code" ColumnName="Customer_Code" />
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+                <ScalarProperty Name="Customer_Telephone" ColumnName="Customer_Telephone" />
+                <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
+                <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+                <ScalarProperty Name="Referer1_Name" ColumnName="Referer1_Name" />
+                <ScalarProperty Name="Referer1_Telephone" ColumnName="Referer1_Telephone" />
+                <ScalarProperty Name="Referer2_Name" ColumnName="Referer2_Name" />
+                <ScalarProperty Name="Referer2_Telephone" ColumnName="Referer2_Telephone" />
+                <ScalarProperty Name="Referer3_Name" ColumnName="Referer3_Name" />
+                <ScalarProperty Name="Referer3_Telephone" ColumnName="Referer3_Telephone" />
+                <ScalarProperty Name="Referer4_Name" ColumnName="Referer4_Name" />
+                <ScalarProperty Name="Referer4_Telephone" ColumnName="Referer4_Telephone" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="LastModifiedAt" ColumnName="LastModifiedAt" />
+                <ScalarProperty Name="CustomerLocation" ColumnName="CustomerLocation" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Installations">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.Installation">
+              <MappingFragment StoreEntitySet="Installation">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+                <ScalarProperty Name="Installation_Date" ColumnName="Installation_Date" />
+                <ScalarProperty Name="Count1" ColumnName="Count1" />
+                <ScalarProperty Name="Capacity1_ID" ColumnName="Capacity1_ID" />
+                <ScalarProperty Name="Count2" ColumnName="Count2" />
+                <ScalarProperty Name="Capacity2_ID" ColumnName="Capacity2_ID" />
+                <ScalarProperty Name="Count3" ColumnName="Count3" />
+                <ScalarProperty Name="Capacity3_ID" ColumnName="Capacity3_ID" />
+                <ScalarProperty Name="Count4" ColumnName="Count4" />
+                <ScalarProperty Name="Capacity4_ID" ColumnName="Capacity4_ID" />
+                <ScalarProperty Name="Count5" ColumnName="Count5" />
+                <ScalarProperty Name="Capacity5_ID" ColumnName="Capacity5_ID" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Maintenance_Type" ColumnName="Maintenance_Type" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="LastModifiedAt" ColumnName="LastModifiedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Maintenance_FollowUp">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.Maintenance_FollowUp">
+              <MappingFragment StoreEntitySet="Maintenance_FollowUp">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Installation_ID" ColumnName="Installation_ID" />
+                <ScalarProperty Name="FollowUp_Date" ColumnName="FollowUp_Date" />
+                <ScalarProperty Name="FollowUp_Comment" ColumnName="FollowUp_Comment" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="LastModifiedAt" ColumnName="LastModifiedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Maintenance_Visit">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.Maintenance_Visit">
+              <MappingFragment StoreEntitySet="Maintenance_Visit">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Installation_ID" ColumnName="Installation_ID" />
+                <ScalarProperty Name="Maintenance_Date" ColumnName="Maintenance_Date" />
+                <ScalarProperty Name="Product_Issue" ColumnName="Product_Issue" />
+                <ScalarProperty Name="Maintenance_Description" ColumnName="Maintenance_Description" />
+                <ScalarProperty Name="Fix_Engineer_ID" ColumnName="Fix_Engineer_ID" />
+                <ScalarProperty Name="Assistant_Engineer_ID" ColumnName="Assistant_Engineer_ID" />
+                <ScalarProperty Name="Count1" ColumnName="Count1" />
+                <ScalarProperty Name="Equipment1_ID" ColumnName="Equipment1_ID" />
+                <ScalarProperty Name="Count2" ColumnName="Count2" />
+                <ScalarProperty Name="Equipment2_ID" ColumnName="Equipment2_ID" />
+                <ScalarProperty Name="Count3" ColumnName="Count3" />
+                <ScalarProperty Name="Equipment3_ID" ColumnName="Equipment3_ID" />
+                <ScalarProperty Name="Count4" ColumnName="Count4" />
+                <ScalarProperty Name="Equipment4_ID" ColumnName="Equipment4_ID" />
+                <ScalarProperty Name="Count5" ColumnName="Count5" />
+                <ScalarProperty Name="Equipment5_ID" ColumnName="Equipment5_ID" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="CollectedFees" ColumnName="CollectedFees" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="LastModifiedAt" ColumnName="LastModifiedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.Project">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />
+                <ScalarProperty Name="Projectdec" ColumnName="Projectdec" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Startat" ColumnName="Startat" />
+                <ScalarProperty Name="Endat" ColumnName="Endat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tasks">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.Task">
+              <MappingFragment StoreEntitySet="Tasks">
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="TaskTitle" ColumnName="TaskTitle" />
+                <ScalarProperty Name="Taskdec" ColumnName="Taskdec" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="TechId" ColumnName="TechId" />
+                <ScalarProperty Name="Startat" ColumnName="Startat" />
+                <ScalarProperty Name="Endat" ColumnName="Endat" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Technicians">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.Technician">
+              <MappingFragment StoreEntitySet="Technicians">
+                <ScalarProperty Name="TechId" ColumnName="TechId" />
+                <ScalarProperty Name="RequestTitle" ColumnName="RequestTitle" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="RequestTime" ColumnName="RequestTime" />
+                <ScalarProperty Name="ReplyTitle" ColumnName="ReplyTitle" />
+                <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Capacities">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.Capacity">
+              <MappingFragment StoreEntitySet="Capacity">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Capacity1" ColumnName="Capacity" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="LastModifiedAt" ColumnName="LastModifiedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="City_Name" ColumnName="City_Name" />
+                <ScalarProperty Name="City_Name_AR" ColumnName="City_Name_AR" />
+                <ScalarProperty Name="State_ID" ColumnName="State_ID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="LastModifiedAt" ColumnName="LastModifiedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="LastModifiedAt" ColumnName="LastModifiedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Country_Name" ColumnName="Country_Name" />
+                <ScalarProperty Name="Country_Name_AR" ColumnName="Country_Name_AR" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="LastModifiedAt" ColumnName="LastModifiedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipments">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.Equipment">
+              <MappingFragment StoreEntitySet="Equipments">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Equipment_Name" ColumnName="Equipment_Name" />
+                <ScalarProperty Name="Equipment_Name_AR" ColumnName="Equipment_Name_AR" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="LastModifiedAt" ColumnName="LastModifiedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fix_Employee">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.Fix_Employee">
+              <MappingFragment StoreEntitySet="Fix_Employee">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Fix_Employee_Name" ColumnName="Fix_Employee_Name" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="LastModifiedAt" ColumnName="LastModifiedAt" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+                <ScalarProperty Name="Product_Name_AR" ColumnName="Product_Name_AR" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="LastModifiedAt" ColumnName="LastModifiedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="State_Name" ColumnName="State_Name" />
+                <ScalarProperty Name="State_Name_AR" ColumnName="State_Name_AR" />
+                <ScalarProperty Name="Country_ID" ColumnName="Country_ID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="LastModifiedAt" ColumnName="LastModifiedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="Acropol_MaintenanceDB3Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUser">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="TechRequests">
+            <EntityTypeMapping TypeName="Acropol_MaintenanceDB3Model.TechRequest">
+              <MappingFragment StoreEntitySet="TechRequest">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ReplyTime" ColumnName="ReplyTime" />
+                <ScalarProperty Name="ReplyTiTle" ColumnName="ReplyTiTle" />
+                <ScalarProperty Name="RquestTime" ColumnName="RquestTime" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="RequestTiTle" ColumnName="RequestTiTle" />
+                <ScalarProperty Name="RequestId" ColumnName="RequestId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

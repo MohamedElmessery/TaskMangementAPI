@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="198541f28dbd473ba6d630bca3b6c147" Name="Diagram1" ZoomLevel="75">
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.Customer" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.Installation" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.Maintenance_FollowUp" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.Maintenance_Visit" Width="1.5" PointX="8.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.Project" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.Task" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.Technician" Width="1.5" PointX="3" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.Capacity" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.City" Width="1.5" PointX="1.5" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.Company" Width="1.5" PointX="0.5" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.Country" Width="1.5" PointX="10.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.Equipment" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.Fix_Employee" Width="1.5" PointX="6" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.Product" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.State" Width="1.5" PointX="10.75" PointY="9" IsExpanded="true" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Customer_City" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Customer_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Customer_Company1" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Customer_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Installation_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Maintenance_FollowUp_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Maintenance_Visit_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Projects_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Installation_Capacity" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Installation_Capacity1" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Installation_Capacity2" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Installation_Capacity3" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Installation_Capacity4" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Installation_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Maintenance_FollowUp_Installation" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Maintenance_Visit_Installation" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Maintenance_Visit_Equipments" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Maintenance_Visit_Equipments1" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Maintenance_Visit_Equipments2" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Maintenance_Visit_Equipments3" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Maintenance_Visit_Equipments4" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Maintenance_Visit_Fix_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Maintenance_Visit_Fix_Employee1" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Tasks_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Tasks_Technicians" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.AspNetRole" Width="1.5" PointX="1.75" PointY="28.25" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.AspNetUserClaim" Width="1.5" PointX="6.25" PointY="21.25" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.AspNetUserLogin" Width="1.5" PointX="6.25" PointY="18.75" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.AspNetUser" Width="1.5" PointX="4" PointY="18.75" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_AspNetUsers_Company" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_Fix_Employee_AspNetUsers" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.AspNetUserRoles" />
+        <EntityTypeShape EntityType="Acropol_MaintenanceDB3Model.TechRequest" Width="1.5" PointX="6.625" PointY="24.75" />
+        <AssociationConnector Association="Acropol_MaintenanceDB3Model.FK_TechRequest_AspNetUsers" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
